@@ -1,7 +1,7 @@
-Flask
 tensorflow
-keras
+flask
+opencv-python
 Pillow
-matplotlib
 reportlab
+tf-keras-vis
 numpy
