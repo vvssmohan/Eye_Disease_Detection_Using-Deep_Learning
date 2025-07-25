@@ -71,6 +71,10 @@ The trained model is deployed via a Flask web app that offers prediction, confid
 
 ## 📂 Project Structure
 
+
+
+
+
 Eye_Disease_Detection/
 ├── app.py                  # Flask backend
 ├── models/
@@ -85,6 +89,24 @@ Eye_Disease_Detection/
 │   └── result.html         # Prediction result view
 ├── requirements.txt       
 └── README.md               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
