@@ -64,7 +64,7 @@ Anaconda or another virtual environment manager (recommended).
 ### 2. Clone the Repository
 Bash
 
-git clone <your-repository-link>
+git clone <>
 cd Eye_Disease_Project
 ### 3. Set Up the Dataset
 Download the dataset from Kaggle: Eye Diseases Classification Dataset
@@ -82,10 +82,10 @@ Bash
 python -m venv venv
 
 # Activate it
+
 # On Windows:
 venv\Scripts\activate
-# On macOS/Linux:
-source venv/bin/activate
+
 
 # Install the required packages from requirements.txt
 pip install -r requirements.txt
@@ -100,6 +100,7 @@ Pillow
 matplotlib
 reportlab
 scikit-learn
+
 ## How to Run the Project 🏃‍♂️
 The project runs in two stages: training the model and then running the web application.
 
@@ -109,7 +110,7 @@ First, you need to run the training script to generate the eye_disease_model.h5 
 Bash
 
 python model_training.py
-This process may take some time depending on your hardware. It will create the model file inside the models/ folder.
+This process may take some time, depending on your hardware. It will create the model file inside the models/ folder.
 
 ### Stage 2: Run the Flask Web Application
 Once the model is trained and saved, you can start the web server.
