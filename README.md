@@ -40,7 +40,7 @@ The trained model is deployed via a Flask web app that offers prediction, confid
 
 ## 🧠 Technologies Used
 
-- Python 3.12
+- Python 
 - Flask
 - TensorFlow / Keras (Xception)
 - OpenCV & Pillow (Image processing)
