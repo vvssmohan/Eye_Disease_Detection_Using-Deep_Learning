@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Eye Disease Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Eye Disease Detection</h1>
+        <h4>Upload a retinal scan for an instant diagnosis using our advanced AI model.</h4>
+        
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file" class="upload-area">
+                <span class="upload-label">👁️ Click here to select an image</span>
+                <input type="file" name="file" id="file" accept="image/*" required onchange="previewImage(event)">
+            </label>
+            
+            <div>
+                <img id="image-preview" src="" alt="Image Preview" style="display:none;">
+            </div>
+
+            <button type="submit" class="btn">Diagnose Image</button>
+        </form>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            if (event.target.files.length > 0) {
+                const reader = new FileReader();
+                reader.onload = function() {
+                    const output = document.getElementById('image-preview');
+                    output.src = reader.result;
+                    output.style.display = 'block';
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>

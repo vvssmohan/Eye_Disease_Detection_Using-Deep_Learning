@@ -1,0 +1,7 @@
+Flask
+tensorflow
+keras
+Pillow
+matplotlib
+reportlab
+numpy
