@@ -83,8 +83,8 @@ Eye_Disease_Detection/
 ├── templates/
 │   ├── index.html          # Home page UI
 │   └── result.html         # Prediction result view
-├── requirements.txt        # Python dependencies
-└── README.md               # You're reading this 😉
+├── requirements.txt       
+└── README.md               
 
 
 
