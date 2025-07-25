@@ -28,11 +28,13 @@ logging.basicConfig(level=logging.INFO)
 model = load_model(MODEL_PATH)
 
 def allowed_file(filename):
-    """Checks if the uploaded file has an allowed extension."""
+    
+    """ Checks if the uploaded file has an allowed extension."""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def find_last_conv_layer_name(model):
-    """Finds the last convolutional layer in a Keras model for Grad-CAM."""
+    
+    """ Finds the last convolutional layer in a Keras model for Grad-CAM."""
     for layer in reversed(model.layers):
         # Use layer.output.shape for robust compatibility across TensorFlow versions
         if isinstance(layer, tf.keras.layers.Conv2D) and len(layer.output.shape) == 4:
@@ -40,7 +42,7 @@ def find_last_conv_layer_name(model):
     raise ValueError("Could not find a Conv2D layer in the model.")
 
 def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index=None):
-    """Generates a Grad-CAM heatmap."""
+    """ Generates a Grad-CAM heatmap."""
     grad_model = tf.keras.models.Model(
         [model.inputs], [model.get_layer(last_conv_layer_name).output, model.output]
     )
@@ -59,7 +61,8 @@ def make_gradcam_heatmap(img_array, model, last_conv_layer_name, pred_index=None
     return heatmap.numpy()
 
 def generate_pdf_report(report_base_filename, prediction, confidence, image_path):
-    """Generates a PDF report of the diagnosis."""
+    
+    """ Generates a PDF report of the diagnosis."""
     pdf_path = os.path.join(REPORT_FOLDER, f"{report_base_filename}.pdf")
     c = canvas.Canvas(pdf_path)
     c.setFont("Helvetica-Bold", 16)
@@ -70,11 +73,13 @@ def generate_pdf_report(report_base_filename, prediction, confidence, image_path
     c.drawString(100, 730, f"Date: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     c.drawImage(image_path, 100, 500, width=200, height=200)
     c.save()
+    
     return pdf_path
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    """Handles the main page, file uploads, and predictions."""
+    
+    """ Handles the main page, file uploads, and predictions."""
     if request.method == "POST":
         file = request.files.get("file")
         if not file or file.filename == '' or not allowed_file(file.filename):
@@ -130,7 +135,8 @@ def index():
 
 @app.route("/download/<path:filename>")
 def download(filename):
-    """Handles the downloading of PDF reports."""
+    
+    """ Handles the downloading of PDF reports."""
     return send_from_directory(
         directory=REPORT_FOLDER,
         path=filename,
