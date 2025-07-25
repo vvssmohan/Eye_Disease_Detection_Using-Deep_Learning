@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diagnosis Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Diagnosis Report</h1>
+        <h4>Analysis complete. See the results of the AI diagnosis below.</h4>
+
+        <div class="result-grid">
+            <div class="result-panel">
+                <h3>Diagnosis</h3>
+                <div class="diagnosis-card">
+                    <h2 class="{{ 'status-normal' if result == 'Normal' else 'status-disease' }}">
+                        {{ result.replace('_', ' ') }}
+                    </h2>
+                    <div class="confidence-circle" style="--p: {{ confidence|int }};">
+                        {{ "%.1f"|format(confidence) }}%
+                    </div>
+                    <p>Confidence Score</p>
+                    <p class="disclaimer">
+                        Disclaimer: This AI-generated result is for informational purposes only and is not a substitute for professional medical advice.
+                    </p>
+                </div>
+            </div>
+
+            <div class="result-panel">
+                <h3>Image Analysis</h3>
+                <div>
+                    <h4>Original Image</h4>
+                    <img src="{{ url_for('static', filename=img_path) }}" alt="Original Image">
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <h4>AI Focus Heatmap</h4>
+                    <img src="{{ url_for('static', filename=heatmap_path) }}" alt="Heatmap">
+                </div>
+            </div>
+        </div>
+
+        <a href="/" class="btn">Analyze Another Image</a>
+        <a href="{{ url_for('download', filename=report_filename) }}" class="btn">Download PDF Report</a>
+    </div>
+</body>
+</html>
