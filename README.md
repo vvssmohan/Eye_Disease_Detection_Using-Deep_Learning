@@ -101,8 +101,8 @@ Eye_Disease_Detection/
 
 🛠️ **How to Run Locally:**
 
-git clone [https://github.com/vvssmohan/Eye_Disease_Detection_Using-Deep_Learning.git](https://github.com/vvssmohan/Eye_Disease_Detection_Using-Deep_Learning.git)
-cd Eye_Disease_Detection_Using-Deep_Learning
+git clone [https://github.com/vvssmohan/Eye_Disease_Detection_Using-Deep_Learning.git]
+(https://github.com/vvssmohan/Eye_Disease_Detection_Using-Deep_Learning.git)
 
 # Create a virtual environment:
 python -m venv venv
