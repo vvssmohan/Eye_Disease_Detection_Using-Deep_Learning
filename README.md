@@ -84,7 +84,7 @@ Eye_Disease_Detection/
 │   ├── index.html          # Home page UI
 │   └── result.html         # Prediction result view
 ├── requirements.txt       
-└── README.md               
+└── README.md              
 ---
 
 🛠️ **How to Run Locally:**
